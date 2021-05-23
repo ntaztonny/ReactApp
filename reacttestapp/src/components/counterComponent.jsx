@@ -4,7 +4,7 @@ import React, { Component, createContext } from 'react';
 class Counter extends Component {
     
     state = {
-        Count: 1,
+        Count: this.props.value,
         ImageUrl: 'https://picsum.photos/200',
         Name: 'Ntambaazi Tonny',
         Gender: 'Male',
@@ -38,8 +38,7 @@ class Counter extends Component {
     };
  
     render() { 
-        //React.createElement('div');
-     
+        
         return (<React.Fragment> <br/>
                     <span>{this.formatCount()}</span><br/>
                     <img src='https://picsum.photos/200' alt =""/><br/>
