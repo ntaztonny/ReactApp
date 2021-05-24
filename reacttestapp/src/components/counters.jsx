@@ -12,11 +12,32 @@ class Counters extends Component {
             {id: 6, value: 7}
         ]
      };
+
+     handleDelete = counterID =>{
+        console.log("Delete called!", counterID)
+        const counters = this.state.countersElement.filter(c => c.id !== counterID);
+        this.setState({countersElement : counters})
+    };
+
+    handleReset = () =>{ 
+        const countersElementreset = this.state.countersElement;
+        this.setState({countersElement: countersElementreset});
+    }
+
     render() { 
         
-        return ( 
+        return (
         <div>
-            {this.state.countersElement.map(count =><Counter key ={count.id} value={count.value} selected = {true}/>)};
+            <button onClick = {this.handleReset}>Reset</button>
+            {this.state.countersElement.map(count =>
+                (<Counter 
+                    key={count.id} 
+                    onDelete = {this.handleDelete} 
+                    value={count.value} 
+                    id = {count.id}
+                    selected = {true}
+                />)
+                )}
           
         </div> );
        
