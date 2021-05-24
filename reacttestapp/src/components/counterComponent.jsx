@@ -30,13 +30,17 @@ class Counter extends Component {
            this.handleIncrement =  this.handleIncrement.bind(this);
         }*/
 
-    handleIncrement = (productID, productID2) =>{
-        console.log(productID);
-        console.log(productID2);
-      this.setState({Count: this.state.Count+1});
-        
+    handleIncrement = () =>{
+        if(this.state.Count > 0)
+         this.setState({Count: this.state.Count+1});
     };
- 
+
+    handleDecrement = () =>{
+        if(this.state.Count > 0 )
+        this.setState({Count: this.state.Count-1});
+   };
+
+    
     render() { 
         
         return (<React.Fragment> <br/>
@@ -58,9 +62,11 @@ class Counter extends Component {
                         <li>Item 4</li>
                         <li>Item 5</li>
                     </ul>
-                    <button onClick = {() => this.handleIncrement(17,10)} className="btn btn-secondary btn-sm">This is a button</button>        
+                    <button onClick = {this.handleIncrement} className="btn btn-secondary btn-sm">Increase</button>  
+                    <span> <button onClick = {this.handleDecrement} className="btn btn-danger btn-sm m-2">Decrease</button>  </span>  
+                    <span> <button onClick = {() =>this.props.onDelete(this.props.id)} className="btn btn-primary btn-sm m-2">Delete</button>  </span>  
                 </React.Fragment>
-                );
+                )
                  
     }
 
