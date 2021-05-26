@@ -2,7 +2,7 @@ import React, { Component, createContext } from 'react';
 
 
 class Counter extends Component {
-    
+    //change this to a controlled state from the counterComponents class
     state = {
         Count: this.props.value,
         ImageUrl: 'https://picsum.photos/200',
